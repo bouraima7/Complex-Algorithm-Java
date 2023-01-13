@@ -1,0 +1,105 @@
+package simventions;
+import java.util.*;
+
+public class homework {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner in = new Scanner(System.in);
+		int a=0; //given a number
+		
+		//find smallest number with 1s & 0s divisible by (a)
+		System.out.println("Welcome to my homework assignment for Simventions!!!");
+		System.out.println("This program will allow you to input any number and find the smallest number with 1s and 0s that is divisible with your selected number");
+		
+		boolean valid = false;
+		
+		while (valid == false) {
+			
+			System.out.println("To begin, Please input a number between 1 and 50");
+			if (in.hasNextInt()) {
+				a= in.nextInt();
+				if (a > 0) {
+					if (a <51) {
+						valid = true;
+						System.out.println("Ok calculating now...");
+						System.out.println();
+					}
+					else {
+						System.out.println("Please input a number less than 51");
+					}
+				}
+				else {
+					System.out.println("Please Input a number greater than 0");
+				}
+					
+				
+			}
+			else {
+				System.out.println("Error! Please input a number without decimals.(Integers only)");
+				//a = in.nextInt();
+				//valid=false;
+			}
+			
+		}
+		
+		//a = in.nextInt();
+		//a = 13 ;
+		String con = "y";
+		String stop = "n";
+		int lol = test(a);
+		if (lol == 123) {
+			System.out.println("Wow. Your selected number does not have a number with 1s and 0s that is evenly divisible under 1,000,000(1 million)!");
+		}
+		else {
+			System.out.println("After my calculations, the smallest number with 1s and 0s divisible by "+a +" is "+lol);
+		}
+		
+	}
+	
+	public static int test(int b) {
+		
+		boolean hit=false;
+		int counter=0;
+		while (hit != true) {
+			boolean hit2 = false;
+			
+			for (int i=1; hit2!=true; i++) {
+				if (i < 1000001) {
+					if ( i % b  == 0) {
+						if (i == 10 || i==100 || i == 101 || i == 110 || i == 111 || i == 1000 || i == 1001 || i == 1010 || i==1011 || i==1100 || i==1101 || i==1110 || i==1111 ) {
+							counter = i;
+							hit2=true;
+						}
+						else if (i ==10000 || i ==10001 || i == 10010 || i == 10011 || i == 10100 || i ==10101 || i==10110 || i==10111 || i==11000 || i==11001 || i==11010 || i==11011 || i==11100 || i==11101 || i == 11110 || i==11111) {
+							counter =i;
+							hit2=true;
+						}
+						else if (i ==100000 || i ==100001 || i == 100010 || i == 100011 || i == 100100 || i ==100101 || i==100110 || i==100111 || i==110000 || i==110001 || i==110010 || i==110011 || i==111000 || i==111001 || i == 111010 || i==111011 || i==111100 || i==111101 || i==111110 || i==111111 || i==1000000) {
+							counter =i;
+							hit2=true;
+						}
+						
+						
+						//b = i;
+						//hit2 = true;
+					}
+				}
+				else {
+					counter=123;
+					hit2=true;
+				}
+				
+			}
+			if (hit2=true) {
+				
+				hit = true;
+			}
+		}
+		
+		return counter;
+		
+	}
+
+}
